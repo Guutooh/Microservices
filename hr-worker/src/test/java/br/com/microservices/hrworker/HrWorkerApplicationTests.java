@@ -1,4 +1,4 @@
-package br.com.microservice.hrworker;
+package br.com.microservices.hrworker;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
