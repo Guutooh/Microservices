@@ -2,7 +2,11 @@ package br.com.microservices.hrworker.Controller;
 
 import br.com.microservices.hrworker.entities.Worker;
 import br.com.microservices.hrworker.repositories.WorkerRepository;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +19,12 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/workers")
 public class WorkerController {
+
+    private static Logger logger = LoggerFactory.getLogger(WorkerController.class);
+
+    @Autowired
+    private Environment env;
+
 
     @Autowired
     WorkerRepository repository;
@@ -29,6 +39,8 @@ public class WorkerController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Worker> findById(@PathVariable Long id) {
+
+        logger.info("PORT = " + env.getProperty("local.server.port"));
 
         Worker worker = repository.findById(id).get();
 
