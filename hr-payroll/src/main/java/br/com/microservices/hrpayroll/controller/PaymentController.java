@@ -27,7 +27,7 @@ public class PaymentController {
     }
 
     public ResponseEntity<Payment> getPaymentAlternative (long workerId, @PathVariable Integer days){
-        Payment payment = new Payment("Brann", 400.0, days);
+        Payment payment = new Payment("Caminho alternativo", 400.0, days);
         return ResponseEntity.ok(payment);
     }
 
