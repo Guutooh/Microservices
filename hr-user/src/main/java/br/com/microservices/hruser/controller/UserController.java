@@ -27,7 +27,7 @@ public class UserController {
 
 
     @GetMapping("/procura")
-    public ResponseEntity<User> findById(@RequestParam String email) {
+    public ResponseEntity<User> findByEmail(@RequestParam String email) {
 
 
         User user = repository.findByEmail(email);
